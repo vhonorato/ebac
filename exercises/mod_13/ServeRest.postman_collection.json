@@ -1,0 +1,465 @@
+{
+	"info": {
+		"_postman_id": "3f02a2aa-c43b-4313-83c8-fe03459fd954",
+		"name": "ServeRest",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Login",
+			"item": [
+				{
+					"name": "Login",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"const resposta = pm.response.json();\r",
+									"pm.globals.set(\"token\", resposta.authorization);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"email\": \"v.honorato@live.com\",\r\n  \"password\": \"123456\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"login"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Usuários",
+			"item": [
+				{
+					"name": "Listar usuários",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"const expectText = (text) => pm.expect(pm.response.text()).to.include(text)\r",
+									"\r",
+									"pm.test(\"test\", function(){\r",
+									"\r",
+									"    if(pm.response.code === 200){expectText(\"fulano@qa.com\")};\r",
+									"    \r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{local}}/usuarios",
+							"host": [
+								"{{local}}"
+							],
+							"path": [
+								"usuarios"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Criar usuário",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"const expectText = (text) => pm.expect(pm.response.text()).to.include(text)\r",
+									"\r",
+									"pm.test(\"test\", function(){\r",
+									"\r",
+									"    if(pm.response.code === 201){expectText(\"Cadastro realizado com sucesso\")};\r",
+									"    if(pm.response.code === 400){expectText(\"Este email já está sendo usado\")};\r",
+									"    \r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nome\": \"Fulano da Silva1\",\r\n    \"email\": \"fulano1@qa.com\",\r\n    \"password\": \"teste\",\r\n    \"administrador\": \"true\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{local}}/usuarios",
+							"host": [
+								"{{local}}"
+							],
+							"path": [
+								"usuarios"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Buscar usuário por id",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"const expectText = (text) => pm.expect(pm.response.text()).to.include(text)\r",
+									"\r",
+									"pm.test(\"test\", function(){\r",
+									"\r",
+									"    if(pm.response.code === 200){expectText(\"fulano@qa.com\")};\r",
+									"    if(pm.response.code === 400){expectText(\"Usuário não encontrado\")};\r",
+									"    \r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{local}}/usuarios/0uxuPY0cbmQhpEz1",
+							"host": [
+								"{{local}}"
+							],
+							"path": [
+								"usuarios",
+								"0uxuPY0cbmQhpEz1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Excluir usuário",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"const expectText = (text) => pm.expect(pm.response.text()).to.include(text)\r",
+									"\r",
+									"pm.test(\"test\", function(){\r",
+									"    if(pm.response.code === 200){\r",
+									"        if(pm.response.body === \"Registro excluído com sucesso\"){\r",
+									"            expectText(\"Registro excluído com sucesso\")   \r",
+									"        }else {\r",
+									"            expectText(\"Nenhum registro excluído\") \r",
+									"        }\r",
+									"    };\r",
+									"    if(pm.response.code === 400){expectText(\"Não é permitido excluir usuário com carrinho cadastrado\")};\r",
+									"    \r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{local}}/usuarios/9pnrujQoZgioiS2e",
+							"host": [
+								"{{local}}"
+							],
+							"path": [
+								"usuarios",
+								"9pnrujQoZgioiS2e"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Editar usuário",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"const expectText = (text) => pm.expect(pm.response.text()).to.include(text)\r",
+									"\r",
+									"pm.test(\"test\", function(){\r",
+									"\r",
+									"    if(pm.response.code === 200){expectText(\"Registro alterado com sucesso\")};\r",
+									"    if(pm.response.code === 201){expectText(\"Cadastro realizado com sucesso\")};\r",
+									"    if(pm.response.code === 400){expectText(\"Este email já está sendo usado\")};\r",
+									"    \r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"nome\": \"Vinicius Honorato\",\r\n  \"email\": \"v.honorato@live.com\",\r\n  \"password\": \"123456\",\r\n  \"administrador\": \"false\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{local}}/usuarios/9pnrujQoZgioiS2e",
+							"host": [
+								"{{local}}"
+							],
+							"path": [
+								"usuarios",
+								"9pnrujQoZgioiS2e"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Produtos",
+			"item": [
+				{
+					"name": "Listar produtos",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Validar produto da lista\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"Samsung 60 polegadas\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Status code é 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/produtos",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"produtos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Listar produtos por id",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Validar produto da lista\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"Samsung 60 polegadas\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Status code é 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/produtos/ytM6MSiVpa1sN12m",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"produtos",
+								"ytM6MSiVpa1sN12m"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Editar produtos",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"warning": "This is a duplicate header and will be overridden by the Authorization header generated by Postman.",
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"nome\": \"iPhone XR v3\",\r\n  \"preco\": 3700,\r\n  \"descricao\": \"Telefone celular\",\r\n  \"quantidade\": 500\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{local}}produtos/mu4APWTbBNgwRgiu",
+							"host": [
+								"{{local}}produtos"
+							],
+							"path": [
+								"mu4APWTbBNgwRgiu"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Cadastrar produtos",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Validar mensagem de sucesso\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"Cadastro realizado com sucesso\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Status code é 201\", function () {\r",
+									"    pm.response.to.have.status(201);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"nome\": \"Controle de TV\",\r\n  \"preco\": 35,\r\n  \"descricao\": \"Controle para TV Samsung\",\r\n  \"quantidade\": 1000\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/produtos",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"produtos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Deletar produtos",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code é 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"pm.test(\"Validar mensagem\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"Registro excluído com sucesso\");\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InYuaG9ub3JhdG9AbGl2ZS5jb20iLCJwYXNzd29yZCI6IjEyMzQ1NiIsImlhdCI6MTYzMDI3NDkwOSwiZXhwIjoxNjMwMjc1NTA5fQ.BH5rsCSs-wR-j7Bv-hPuzpvPORuh6MZxKAn7uEjavdY",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{local}}produtos/ytM6MSiVpa1sN12m",
+							"host": [
+								"{{local}}produtos"
+							],
+							"path": [
+								"ytM6MSiVpa1sN12m"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
