@@ -42,7 +42,7 @@ Cypress.Commands.add("addProdutos", (produto, tamanho, cor, quantidade) => {
 
   Cypress.Commands.add('checkOut', ()=>{
     cy.get('.dropdown-toggle > .text-skin > .icon-basket').click().wait(1000)
-    cy.get('#cart > .dropdown-menu > .widget_shopping_cart_content > .mini_cart_content > .mini_cart_inner > .mcart-border > .buttons > .checkout').click().wait(1000);
+    cy.contain('checkout').click()
     cy.get('#terms').click().wait(500);
     cy.get('#place_order').click().wait(500);
   });
