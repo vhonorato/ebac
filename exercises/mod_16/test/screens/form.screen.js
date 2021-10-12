@@ -1,38 +1,50 @@
+const SELECTORS = {
+  TEXT_INPUT: "~text-input",
+  INPUT_TEXT_RESULT : "~input-text-result",
+  SWITCH: "~switch",
+  SWITCH_TEXT: "~switch-text",
+  DROPDOWN: 'android=new UiSelector().text("Select an item...")',
+  DROPDOWN_MENU: 'android=new UiSelector().text("This app is awesome")',
+  BUTTON: 'android=new UiSelector().text("Active")',
+  OK_BUTTON: 'android=new UiSelector().text("OK")',
+  BUTTON_RESULT: 'android=new UiSelector().text("This button is active")',
+};
+
 class FormScreen {
   get #inputField() {
-    return $("~text-input");
+    return $(SELECTORS.TEXT_INPUT);
   }
 
   get #inputFieldResult() {
-    return $("~input-text-result");
+    return $(SELECTORS.INPUT_TEXT_RESULT);
   }
 
   get #switch() {
-    return $("~switch");
+    return $(SELECTORS.SWITCH);
   }
 
   get #switchResult() {
-    return $("~switch-text");
+    return $(SELECTORS.SWITCH_TEXT);
   }
 
   get #dropdown() {
-    return $('android=new UiSelector().text("Select an item...")');
+    return $(SELECTORS.DROPDOWN);
   }
 
   get #dropdownMenu() {
-    return $('android=new UiSelector().text("This app is awesome")');
+    return $(SELECTORS.DROPDOWN_MENU);
   }
 
   get #button() {
-    return $('android=new UiSelector().text("Active")');
+    return $(SELECTORS.BUTTON);
   }
 
   get #okButton() {
-    return $('android=new UiSelector().text("OK")');
+    return $(SELECTORS.OK_BUTTON);
   }
 
   get #buttonResult(){
-      return $('android=new UiSelector().text("This button is active")')
+      return $(SELECTORS.BUTTON_RESULT)
   }
 
   async enterText(text) {

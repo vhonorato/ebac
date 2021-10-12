@@ -7,9 +7,9 @@ const SELECTORS = {
   INPUT: "~input-email",
   PASSWORD: "~input-password",
   REPEAT_PASSWORD: "~input-repeat-password",
-  // ALERT_TITLE: "id:alertTitle",
-  // ALERT_MESSAGE: "id:message",
-  // ALERT_BUTTON: "id:button1",
+  ALERT_TITLE: 'android=new UiSelector().text("Success")',
+  ALERT_MESSAGE: 'android=new UiSelector().text("You are logged in!")',
+  ALERT_BUTTON: 'android=new UiSelector().text("OK")',
 };
 
 class LoginScreen {
@@ -41,27 +41,26 @@ class LoginScreen {
     return $(SELECTORS.REPEAT_PASSWORD);
   }
 
-  // get #alertTitle(){
-  //   return $(SELECTORS.ALERT_TITLE);
-  // }
+  get #alertTitle(){
+    return $(SELECTORS.ALERT_TITLE);
+  }
 
-  // get alertMessage(){
-  //   return $(SELECTORS.ALERT_MESSAGE);
-  // }
+  get alertMessage(){
+    return $(SELECTORS.ALERT_MESSAGE);
+  }
 
-  // get #alerButton(){
-  //   return $(SELECTORS.ALERT_BUTTON);
-  // }
+  get #alerButton(){
+    return $(SELECTORS.ALERT_BUTTON);
+  }
 
-  // async getAlertTitle(){
-  //   await this.#alertTitle.waitForExist();
-  //   return await this.#alertTitle.getText();
-  // }
+  async getAlertTitle(){
+    await this.#alertTitle.waitForExist();
+    return await this.#alertTitle.getText();
+  }
 
-  // async getAlertButton(){
-  //   return await this.#alerButton.click();
-  // }
-
+  async getAlertButton(){
+    return await this.#alerButton.click();
+  }
 }
 
 module.exports = new LoginScreen();

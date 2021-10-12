@@ -1,26 +1,35 @@
+const SELECTORS = {
+  HOME: "~Home",
+  WEBVIEW: "~Webview",
+  LOGIN: "~Login",
+  FORMS: "~Forms",
+  SWIPE: "~Swipe",
+  DRAG: "~Drag",
+}
+
 class HomeScreen {
   get #enterHome() {
-    return $("~Home");
+    return $(SELECTORS.HOME);
   }
 
   get #enterWebview() {
-    return $("~Webview");
+    return $(SELECTORS.WEBVIEW);
   }
 
   get #enterLogin() {
-    return $("~Login");
+    return $(SELECTORS.LOGIN);
   }
 
   get #enterForms() {
-    return $("~Forms");
+    return $(SELECTORS.FORMS);
   }
 
   get #enterSwipe() {
-    return $("~Swipe");
+    return $(SELECTORS.SWIPE);
   }
 
   get #enterDrag() {
-    return $("~Drag");
+    return $(SELECTORS.DRAG);
   }
 
   async goToHome() {
