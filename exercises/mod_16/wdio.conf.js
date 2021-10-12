@@ -10,6 +10,7 @@ exports.config = {
   capabilities: [
     {
       platformName: "Android",
+      maxInstances: 1,
       platformVersion: "11",
       deviceName: "webdriveIO",
       automationName: "UiAutomator2",
