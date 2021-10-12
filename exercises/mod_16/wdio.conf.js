@@ -6,6 +6,7 @@ exports.config = {
   path: "/wd/hub",
   specs: ["./test/specs/**/*.spec.js"],
   framework: "mocha",
+  services: ['appium'],
   capabilities: [
     {
       platformName: "Android",
@@ -14,7 +15,9 @@ exports.config = {
       automationName: "UiAutomator2",
       app: join(process.cwd(), "./app/android/Android-NativeDemoApp-0.4.0.apk"),
       appPackage: "com.wdiodemoapp",
-      appActivity: "com.wdiodemoapp.MainActivity"
+      appActivity: "com.wdiodemoapp.MainActivity",
+      appWaitActivity: "com.wdiodemoapp.MainActivity",
+      newCommandTimeout: 240
     },
   ],
   waitforTimeout: 20000,
