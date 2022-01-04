@@ -1,5 +1,7 @@
 pipeline {
     agent any
+    
+    tools {nodejs "node"}
 
     stages {
         stage('Clonar o repositorio') {
@@ -9,17 +11,17 @@ pipeline {
         }
         stage('Mudar de diretório') {
             steps {
-                bat 'cd exercises/mod_16'
+                sh 'cd exercises/mod_16'
             }
         }
         stage('Instalar dependencias') {
             steps {
-                bat 'npm install'
+                sh 'npm install'
             }
         }
         stage('Executar testes') {
             steps {
-                bat 'npm test'
+                sh 'npm test'
             }
         }
     }
