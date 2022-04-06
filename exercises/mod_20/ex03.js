@@ -2,6 +2,8 @@
 ficamos com 3, 5, 6 e 9. A soma desses múltiplos é 23. Crie uma função que 
 retorne a soma de todos os múltiplos de 5 ou 7 abaixo de 1000.*/
 
+const { ModuleMocker } = require("jest-mock");
+
 function somaMultiplos() {
   const max = 1000;
   let result = 0;
@@ -10,3 +12,5 @@ function somaMultiplos() {
   
   return result;
 }
+
+module.exports = {somaMultiplos}
