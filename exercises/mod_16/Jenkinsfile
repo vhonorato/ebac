@@ -9,19 +9,14 @@ pipeline {
                 git branch: 'main', url: 'https://github.com/vhonorato/ebac.git'
             }
         }
-        stage('Mudar de diretório') {
-            steps {
-                sh 'cd exercises/mod_16'
-            }
-        }
         stage('Instalar dependencias') {
             steps {
                 sh 'npm install'
             }
         }
-        stage('Executar testes') {
+        stage('Executar no browserstack') {
             steps {
-                sh 'npm test'
+                sh 'npm run android.browserstack.app'
             }
         }
     }
