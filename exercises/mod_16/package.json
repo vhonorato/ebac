@@ -4,7 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "npx wdio run ./wdio.conf.js"
+    "test": "npx wdio run ./wdio.conf.js",
+    "android.browserstack.app": "npx wdio run ./config/browserstack/wdio.android.bs.app.conf.js",
+    "android.app": "npx wdio run ./config/wdio.android.app.conf.js"
   },
   "keywords": [],
   "author": "",
@@ -19,6 +21,7 @@
     "@wdio/spec-reporter": "^7.12.5",
     "allure-commandline": "^2.13.8",
     "appium": "^1.22.0",
+    "dotenv": "^16.0.0",
     "wdio-video-reporter": "^3.1.2"
   }
 }
