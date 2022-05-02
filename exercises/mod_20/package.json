@@ -1,0 +1,14 @@
+{
+  "name": "mod_20",
+  "version": "1.0.0",
+  "description": "",
+  "main": "ex01.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "jest": "^27.5.1"
+  }
+}
