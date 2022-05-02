@@ -1,0 +1,61 @@
+[ {
+  "uid" : "ac27d374a39ef13a",
+  "name" : "Product Augusta Pullover Jacket should be return correctly",
+  "time" : {
+    "start" : 1650292971716,
+    "stop" : 1650292975792,
+    "duration" : 4076
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "f1482a83ac7e6b1c",
+  "name" : "Product Josie Yoga Jacket should be return correctly",
+  "time" : {
+    "start" : 1650292975832,
+    "stop" : 1650292979740,
+    "duration" : 3908
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "8c63ce0285f165ad",
+  "name" : "Product Stellar Solar Jacket should be return correctly",
+  "time" : {
+    "start" : 1650292979857,
+    "stop" : 1650292984196,
+    "duration" : 4339
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "309acfb06094ab9f",
+  "name" : "Product Ingrid Running Jacket should be return correctly",
+  "time" : {
+    "start" : 1650292965121,
+    "stop" : 1650292971614,
+    "duration" : 6493
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "63a69be066eeaf78",
+  "name" : "Product Typhon Performance Fleece-lined Jacket should be return correctly",
+  "time" : {
+    "start" : 1650292984272,
+    "stop" : 1650292989337,
+    "duration" : 5065
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "59317586080523c8",
+  "name" : "Validate product detail link",
+  "time" : {
+    "start" : 1650292916268,
+    "stop" : 1650292952504,
+    "duration" : 36236
+  },
+  "status" : "passed",
+  "severity" : "normal"
+} ]
