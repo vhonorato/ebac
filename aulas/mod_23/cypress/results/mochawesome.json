@@ -1,0 +1,124 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 2,
+    "passes": 2,
+    "pending": 0,
+    "failures": 0,
+    "start": "2022-05-01T21:35:47.439Z",
+    "end": "2022-05-01T21:35:56.945Z",
+    "duration": 9506,
+    "testsRegistered": 2,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "b294296f-197d-4619-babd-60373cb77039",
+      "title": "",
+      "fullFile": "cypress/integration/env_test.spec.js",
+      "file": "cypress/integration/env_test.spec.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "5198bb60-5d36-4a92-a3a4-02ada3db1a65",
+          "title": "Environment Variables",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "cypress.json or cypress.env.json",
+              "fullTitle": "Environment Variables cypress.json or cypress.env.json",
+              "timedOut": null,
+              "duration": 4151,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.url().should('contain', Cypress.env('HOST'));",
+              "err": {},
+              "uuid": "90f1230b-d56d-4d1d-9f55-06044c21ec4a",
+              "parentUUID": "5198bb60-5d36-4a92-a3a4-02ada3db1a65",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Config Test Env",
+              "fullTitle": "Environment Variables Config Test Env",
+              "timedOut": null,
+              "duration": 1449,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.log(Cypress.env('myEnv'));",
+              "err": {},
+              "uuid": "2deeaa85-f1ba-4a39-9673-c690ba090153",
+              "parentUUID": "5198bb60-5d36-4a92-a3a4-02ada3db1a65",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "90f1230b-d56d-4d1d-9f55-06044c21ec4a",
+            "2deeaa85-f1ba-4a39-9673-c690ba090153"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 5600,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/results",
+        "overwrite": false,
+        "html": false,
+        "json": true
+      },
+      "version": "6.2.0"
+    }
+  }
+}

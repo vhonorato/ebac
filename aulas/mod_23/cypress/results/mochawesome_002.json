@@ -1,0 +1,105 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 1,
+    "pending": 0,
+    "failures": 0,
+    "start": "2022-05-01T21:36:10.019Z",
+    "end": "2022-05-01T21:36:41.091Z",
+    "duration": 31072,
+    "testsRegistered": 1,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "6be069e8-8f68-4a1f-b990-fbb991403c87",
+      "title": "",
+      "fullFile": "cypress/integration/product_list_test.spec.js",
+      "file": "cypress/integration/product_list_test.spec.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "34fb1953-df54-4a58-b1f2-c72d3be752e6",
+          "title": "Product List",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Validate product detail link",
+              "fullTitle": "Product List Validate product detail link",
+              "timedOut": null,
+              "duration": 30882,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "_pages.productsPage.productList.each(product => {\n  let productDetailsLink = product.attr('href');\n  let productTitle = product.attr('title');\n  cy.visit(productDetailsLink).then(() => {\n    _pages.productDetailsPage.breadcrumbProduct.should('include.text', productTitle);\n    _pages.productDetailsPage.productTitle.invoke('text').then(text => {\n      expect(text).to.be.equal(productTitle);\n    });\n    _pages.productDetailsPage.variations.find('[for]').should('have.length', 2).and('be.visible');\n  });\n});",
+              "err": {},
+              "uuid": "04d86690-255e-42a8-ad6d-9757e69bdddb",
+              "parentUUID": "34fb1953-df54-4a58-b1f2-c72d3be752e6",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "04d86690-255e-42a8-ad6d-9757e69bdddb"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 30882,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/results",
+        "overwrite": false,
+        "html": false,
+        "json": true
+      },
+      "version": "6.2.0"
+    }
+  }
+}
