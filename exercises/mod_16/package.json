@@ -6,7 +6,8 @@
   "scripts": {
     "test": "npx wdio run ./wdio.conf.js",
     "android.browserstack.app": "npx wdio run ./config/browserstack/wdio.android.bs.app.conf.js",
-    "android.app": "npx wdio run ./config/wdio.android.app.conf.js"
+    "ios.browserstack.app": "npx wdio run ./config/browserstack/wdio.ios.bs.app.conf.js --suite forms",
+    "android.app": "npx wdio run ./config/local/wdio.android.app.conf.js"
   },
   "keywords": [],
   "author": "",

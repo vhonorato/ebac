@@ -1,9 +1,11 @@
 const SELECTORS = {
   TEXT_INPUT: "~text-input",
-  INPUT_TEXT_RESULT : "~input-text-result",
+  INPUT_TEXT_RESULT: "~input-text-result",
   SWITCH: "~switch",
   SWITCH_TEXT: "~switch-text",
   DROPDOWN: 'android=new UiSelector().text("Select an item...")',
+  IOSDROPDOWN:
+    "-ios predicate string:type == 'XCUIElementTypeOther' && NAME CONTAINS 'Dropdown This app is awesome'",
   DROPDOWN_MENU: 'android=new UiSelector().text("This app is awesome")',
   BUTTON: 'android=new UiSelector().text("Active")',
   OK_BUTTON: 'android=new UiSelector().text("OK")',
@@ -31,6 +33,10 @@ class FormScreen {
     return $(SELECTORS.DROPDOWN);
   }
 
+  get #iosDropdown() {
+    return $(SELECTORS.IOSDROPDOWN);
+  }
+
   get #dropdownMenu() {
     return $(SELECTORS.DROPDOWN_MENU);
   }
@@ -43,8 +49,8 @@ class FormScreen {
     return $(SELECTORS.OK_BUTTON);
   }
 
-  get #buttonResult(){
-      return $(SELECTORS.BUTTON_RESULT)
+  get #buttonResult() {
+    return $(SELECTORS.BUTTON_RESULT);
   }
 
   async enterText(text) {
@@ -67,16 +73,20 @@ class FormScreen {
     await this.#dropdown.click();
   }
 
+  async iosDropdownClick() {
+    await this.#iosDropdown.click();
+  }
+
   async dropdownMenuClick() {
     await this.#dropdownMenu.click();
   }
 
-  async buttonClick(){
-      await this.#button.click();
+  async buttonClick() {
+    await this.#button.click();
   }
 
-  async okButtonClick(){
-      await this.#okButton.click();
+  async okButtonClick() {
+    await this.#okButton.click();
   }
 
   async getOkButtonResult() {

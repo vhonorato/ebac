@@ -1,6 +1,6 @@
-const formScreen = require("../screens/form.screen");
-const homeScreen = require("../screens/home.screen");
-const loginScreen = require("../screens/login.screen");
+const formScreen = require("../../screens/form.screen");
+const homeScreen = require("../../screens/home.screen");
+const loginScreen = require("../../screens/login.screen");
 
 describe("Interacting with a Form screen", async () => {
   it("should be able to fill the form", async () => {

@@ -1,12 +1,10 @@
 const { join } = require("path");
+const { generalConf } = require("../general/general.conf");
 
 exports.config = {
-  hostname: "localhost",
-  port: 4723,
-  path: "/wd/hub",
+  ...generalConf,
+  specs: ["./test/specs/android/**/*spec.js"],
 
-  specs: ["./test/specs/**/*.spec.js"],
-  framework: "mocha",
   services: ["appium"],
 
   capabilities: [
@@ -23,8 +21,4 @@ exports.config = {
       newCommandTimeout: 240,
     },
   ],
-  waitforTimeout: 20000,
-  mochaOpts: {
-    timeout: 300000,
-  },
 };

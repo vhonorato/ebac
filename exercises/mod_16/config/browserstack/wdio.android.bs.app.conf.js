@@ -1,15 +1,15 @@
+const { generalConf } = require("../general/general.conf");
+const { bsConf } = require("./bs.conf");
+
 require("dotenv").config();
 
 exports.config = {
-  user: process.env.BROWSERSTACK_USER,
-  key: process.env.BROWSERSTACK_KEY,
-  specs: ["./test/specs/**/*.spec.js"],
-  framework: "mocha",
-
-  services: ["browserstack"],
+  ...generalConf,
+  ...bsConf,
+  specs: ["./test/specs/android/**/*spec.js"],
   capabilities: [
     {
-      app: process.env.BROWSERSTACK_APP,
+      app: process.env.ANDROID_APP_ID,
       device: "Samsung Galaxy A51",
       os_version: "10.0",
       project: "Exercício Módulo 17",
@@ -17,8 +17,4 @@ exports.config = {
       name: "form and login tests",
     },
   ],
-  waitforTimeout: 20000,
-  mochaOpts: {
-    timeout: 300000,
-  },
 };
